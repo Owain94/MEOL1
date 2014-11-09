@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>GET</h2>
+
+<p id="get"></p>
+
+<h2>POST</h2>
+
+<p id="post"></p>
+
+<h2>PUT</h2>
+
+<p id="put"></p>
+
+<h2>DELETE</h2>
+
+<p id="delete"></p>
+
+<script type="text/javascript">
+    function ajaxFunction($var) {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+                document.getElementById($var).innerHTML = xmlhttp.responseText;
+            }
+        }
+        xmlhttp.open("GET", "http://66164.ict-lab.nl/MEOL1/Opdrachten/Opdracht2/curler.php?method=" + $var.toUpperCase(), true);
+        xmlhttp.send();
+    }
+
+    ajaxFunction("get");
+    ajaxFunction("post");
+    ajaxFunction("put");
+    ajaxFunction("delete");
+</script>
+</body>
+</html>
