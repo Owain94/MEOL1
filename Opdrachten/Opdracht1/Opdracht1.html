@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body>
+<p id="info"></p>
+
+<script type="text/javascript">
+    var x = document.getElementById("info");
+    getInfo(null);
+
+    function getLocation() {
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(getInfo);
+        } else {
+            x.innerHTML = "Geolocation is niet ondersteund door deze pauper browser.";
+        }
+    }
+
+    function getInfo(position) {
+        var xmlhttp;
+        if (window.XMLHttpRequest) {
+            xmlhttp = new XMLHttpRequest();
+        } else {
+            xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xmlhttp.onreadystatechange = function () {
+            if (4 == xmlhttp.readyState && 200 == xmlhttp.status) {
+                document.getElementById("info").innerHTML = xmlhttp.responseText;
+            }
+        };
+        if (null == position) {
+            xmlhttp.open("GET", "Opdracht1.php?lat=51.9166667&long=4.5", true);
+        } else {
+            xmlhttp.open("GET", "Opdracht1.php?lat=" + position.coords.latitude + "&long=" + position.coords.longitude, true);
+        }
+        xmlhttp.send();
+    }
+
+    getLocation();
+</script>
+</body>
+</html>
