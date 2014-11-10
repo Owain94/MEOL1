@@ -37,17 +37,17 @@ class REST
     public function __get($name)
     {
         switch ($name) {
-            case "method":
+            case 'method':
                 return $this->getMethod();
 
-            case "command":
+            case 'command':
                 return $this->getCommand();
 
-            case "id":
+            case 'id':
                 return $this->getId();
 
         }
-        return "Not valid";
+        return 'Not valid';
     }
 
     /**

@@ -1,6 +1,6 @@
 <?php
 
-require '../../Slim/Slim.php';
+require_once('../../Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
 
@@ -9,14 +9,14 @@ $app = new \Slim\Slim();
 $app->get(
     '/',
     function () {
-        echo "Ja, hij doet het!";
+        echo 'Ja, hij doet het!';
     }
 );
 
 $app->get(
     '/test',
     function () {
-        echo "Testing, 1, 2, 3!";
+        echo 'Testing, 1, 2, 3!';
     }
 );
 

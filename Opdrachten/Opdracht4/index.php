@@ -1,8 +1,8 @@
 <?php
 
-require_once("../../Slim/Slim.php");
-require_once("../../Keys.php");
-require_once("../../Database.php");
+require_once('../../Slim/Slim.php');
+require_once('../../Keys.php');
+require_once('../../Database.php');
 
 \Slim\Slim::registerAutoloader();
 

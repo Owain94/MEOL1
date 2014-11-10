@@ -1,9 +1,9 @@
 <?php
 
-require_once("../../../Slim/Slim.php");
-require_once("../../../Keys.php");
-require_once("../../../Database.php");
-require_once("../Auth.php");
+require_once('../../../Slim/Slim.php');
+require_once('../../../Keys.php');
+require_once('../../../Database.php');
+require_once('../Auth.php');
 
 \Slim\Slim::registerAutoloader();
 
@@ -15,7 +15,7 @@ $app->get(
     function()
     use($database) {
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -36,7 +36,7 @@ $app->get(
         if (empty($x)) return;
 
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -58,7 +58,7 @@ $app->get(
         if (empty($x)) return;
 
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -78,7 +78,7 @@ $app->get(
     function()
     use($database) {
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -101,7 +101,7 @@ $app->get(
         if (empty($x)) return;
 
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -123,7 +123,7 @@ $app->get(
         if (empty($x)) return;
 
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -144,7 +144,7 @@ $app->post(
     function()
     use($app, $database) {
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 
@@ -165,7 +165,7 @@ $app->post(
     function()
     use($app, $database) {
         if (!Authenticate($_SERVER['HTTP_KEY'], $_SERVER['HTTP_TIMESTAMP'], $_SERVER['HTTP_SIG'])) {
-            echo "Auth failed";
+            echo 'Auth failed';
             return;
         }
 

@@ -1,6 +1,6 @@
 <?php
 
-require '../../Slim/Slim.php';
+require_once('../../Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
 
@@ -9,7 +9,7 @@ $app = new \Slim\Slim();
 $app->get(
     '/',
     function () {
-        echo "Ja, hij doet het!";
+        echo 'Ja, hij doet het!';
     }
 );
 
@@ -84,11 +84,11 @@ $app->post(
     '/test',
     function ()
     use ($app) {
-        echo "Voornaam: " . $app->request()->post('voornaam') . "<br />";
-        echo "Achternaam: " . $app->request()->post('achternaam') . "<br />";
-        echo "Lievelings getal: " . $app->request()->post('getal') . "<br />";
-        echo "Leuke kleur: " . $app->request()->post('kleur') . "<br />";
-        echo "Iets leuks: " . $app->request()->post('leuk');
+        echo 'Voornaam: ' . $app->request()->post('voornaam') . '<br />' .
+             'Achternaam: ' . $app->request()->post('achternaam') . '<br />' .
+             'Lievelings getal: ' . $app->request()->post('getal') . '<br />' .
+             'Leuke kleur: ' . $app->request()->post('kleur') . '<br />' .
+             'Iets leuks: ' . $app->request()->post('leuk');
     }
 );
 

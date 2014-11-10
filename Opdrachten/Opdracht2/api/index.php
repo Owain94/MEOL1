@@ -10,9 +10,9 @@ require_once('REST.php');
 if (!empty($_GET['command']) && !empty($_GET['id'])) {
     $rest = new REST($_GET['command'], $_GET['id']);
 
-    echo "De methode is: " . $rest->method . "<br />";
-    echo "Het commando is: " . $rest->command . "<br />";
-    echo "De id is: " . $rest->id . "<br />";
+    echo 'De methode is: ' . $rest->method . '<br />' .
+         'Het commando is: ' . $rest->command . '<br />' .
+         'De id is: ' . $rest->id;
 } else {
-    echo "Oeps er is iets mis gegaan";
+    echo 'Oeps er is iets mis gegaan';
 }

@@ -19,17 +19,17 @@ curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 
 switch ($method) {
-    case "GET":
+    case 'GET':
         break;
-    case "POST":
+    case 'POST':
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
         break;
-    case "PUT":
+    case 'PUT':
         curl_setopt($ch, CURLOPT_PUT, 1);
         curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
         break;
-    case "DELETE":
+    case 'DELETE':
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
         break;
 }

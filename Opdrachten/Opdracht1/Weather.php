@@ -39,10 +39,10 @@ class Weather
         $this->apikey = $apikey;
 
         $this->parsed_json_condtition = $this->curl(
-            $this->url("conditions", $lat, $long));
+            $this->url('conditions', $lat, $long));
 
         $this->parsed_json_geolookup = $this->curl(
-            $this->url("geolookup", $lat, $long));
+            $this->url('geolookup', $lat, $long));
     }
 
     /**
@@ -82,7 +82,7 @@ class Weather
      */
     private function url($search, $lat, $long)
     {
-        return "http://api.wxug.com/api/" . $this->apikey . "/" . $search . "/q/" . $lat . "," . $long . ".json";
+        return 'http://api.wxug.com/api/' . $this->apikey . '/' . $search . '/q/' . $lat . ',' . $long . '.json';
     }
 
     /**
@@ -92,31 +92,31 @@ class Weather
     public function __get($name)
     {
         switch ($name) {
-            case "country":
+            case 'country':
                 return $this->getCountry();
 
-            case "city":
+            case 'city':
                 return $this->getCity();
 
-            case "location":
+            case 'location':
                 return $this->getLocation();
 
-            case "temperature":
+            case 'temperature':
                 return $this->getTemperature();
 
-            case "wind":
+            case 'wind':
                 return $this->getWind();
 
-            case "weathericon":
+            case 'weathericon':
                 return $this->getWeatherIcon();
 
-            case "satellite":
+            case 'satellite':
                 return $this->getSatelliteImage();
 
-            case "weatherstations":
+            case 'weatherstations':
                 return $this->getWeatherStations();
         }
-        return "Not valid";
+        return 'Not valid';
     }
 
     /**
@@ -125,7 +125,7 @@ class Weather
     private function getCountry()
     {
         $data = json_decode($this->parsed_json_geolookup);
-        return $data->{"location"}->{"country_name"};
+        return $data->{'location'}->{'country_name'};
     }
 
     /**
@@ -134,7 +134,7 @@ class Weather
     private function getCity()
     {
         $data = json_decode($this->parsed_json_geolookup);
-        return $data->{"location"}->{"city"};
+        return $data->{'location'}->{'city'};
     }
 
     /**
@@ -144,8 +144,8 @@ class Weather
     {
         $data = json_decode($this->parsed_json_geolookup);
         $values = [
-            0 => $data->{"location"}->{"lat"},
-            1 => $data->{"location"}->{"lon"}
+            0 => $data->{'location'}->{'lat'},
+            1 => $data->{'location'}->{'lon'}
         ];
         return $values;
     }
@@ -157,10 +157,10 @@ class Weather
     {
         $data = json_decode($this->parsed_json_condtition);
         $values = [
-            0 => $data->{"current_observation"}->{"temp_c"},
-            1 => $data->{"current_observation"}->{"temp_f"},
-            2 => $data->{"current_observation"}->{"feelslike_c"},
-            3 => $data->{"current_observation"}->{"feelslike_f"}
+            0 => $data->{'current_observation'}->{'temp_c'},
+            1 => $data->{'current_observation'}->{'temp_f'},
+            2 => $data->{'current_observation'}->{'feelslike_c'},
+            3 => $data->{'current_observation'}->{'feelslike_f'}
         ];
         return $values;
     }
@@ -172,10 +172,10 @@ class Weather
     {
         $data = json_decode($this->parsed_json_condtition);
         $values = [
-            0 => $data->{"current_observation"}->{"wind_kph"},
-            1 => $data->{"current_observation"}->{"wind_mph"},
-            2 => $data->{"current_observation"}->{"wind_dir"},
-            3 => $data->{"current_observation"}->{"wind_degrees"}
+            0 => $data->{'current_observation'}->{'wind_kph'},
+            1 => $data->{'current_observation'}->{'wind_mph'},
+            2 => $data->{'current_observation'}->{'wind_dir'},
+            3 => $data->{'current_observation'}->{'wind_degrees'}
         ];
         return $values;
     }
@@ -186,7 +186,7 @@ class Weather
     private function getWeatherIcon()
     {
         $data = json_decode($this->parsed_json_condtition);
-        return $data->{"current_observation"}->{"icon_url"};
+        return $data->{'current_observation'}->{'icon_url'};
     }
 
     /**
@@ -195,7 +195,7 @@ class Weather
     private function getSatelliteImage()
     {
         $location = $this->getLocation();
-        $curl = $this->curl("http://api.wxug.com/api/" . $this->apikey . "/satellite/image.gif?lat=" . $location[0] . "&lon=" . $location[1] . "&radius=100&width=200&height=200&key=sat_ir4_bottom&basemap=1", true);
+        $curl = $this->curl('http://api.wxug.com/api/' . $this->apikey . '/satellite/image.gif?lat=' . $location[0] . '&lon=' . $location[1] . '&radius=100&width=200&height=200&key=sat_ir4_bottom&basemap=1', true);
 
         $values = [
             0 => $curl[1]['content_type'],
@@ -210,7 +210,7 @@ class Weather
     private function getWeatherStations()
     {
         $data = json_decode($this->parsed_json_geolookup);
-        $stations = $data->{"location"}->{"nearby_weather_stations"}->{'pws'}->{'station'};
+        $stations = $data->{'location'}->{'nearby_weather_stations'}->{'pws'}->{'station'};
         return $stations;
     }
 }

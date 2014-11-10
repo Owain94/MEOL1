@@ -10,4 +10,4 @@ require_once('REST.php');
 
 $rest = new REST();
 
-echo "De methode is: " . $rest->method;
+echo 'De methode is: ' . $rest->method;

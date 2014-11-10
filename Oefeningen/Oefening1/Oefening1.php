@@ -1,6 +1,6 @@
 <?
 
-$url = "http://www.glr.nl";
+$url = 'http://www.glr.nl';
 
 $ch = curl_init();
 

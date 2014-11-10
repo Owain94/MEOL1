@@ -1,6 +1,6 @@
 <?
 
-$url = "http://api.wunderground.com/api/aaa88a19e94c37f5/geolookup/q/France/Paris.json";
+$url = 'http://api.wunderground.com/api/aaa88a19e94c37f5/geolookup/q/France/Paris.json';
 
 $ch = curl_init();
 

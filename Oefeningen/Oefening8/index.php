@@ -1,6 +1,6 @@
 <?php
 
-require '../../Slim/Slim.php';
+require_once('../../Slim/Slim.php');
 
 \Slim\Slim::registerAutoloader();
 
@@ -30,12 +30,12 @@ $app->map(
     function()
     use ($app) {
         if ($app->request()->isPost()) {
-            echo "Dit is een POST <br />";
+            echo 'Dit is een POST' . '<br />';
         } else if ($app->request()->isGet()) {
-            echo "Dit is een GET <br />";
+            echo 'Dit is een GET' . '<br />';
         }
-        echo "Klaar!";
+        echo 'Klaar!';
     }
-)->via("GET", "POST");
+)->via('GET', 'POST');
 
 $app->run();
