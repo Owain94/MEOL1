@@ -19,9 +19,10 @@ $app->get(
             return;
         }
 
-        $database->query('SELECT `meol1_dieren`.`id`,
-                                 `meol1_dieren`.`naam`
-                          FROM    meol1_dieren');
+        $database->query('SELECT   `meol1_dieren`.`id`,
+                                   `meol1_dieren`.`naam`
+                          FROM      meol1_dieren
+                          ORDER BY `meol1_dieren`.`id` ASC');
 
         $result = $database->resultset();
 
@@ -62,9 +63,10 @@ $app->get(
             return;
         }
 
-        $database->query('SELECT `meol1_dieren`.`eigenaar_id`
-                          FROM    meol1_dieren
-                          WHERE  `meol1_dieren`.`id` = ?');
+        $database->query('SELECT   `meol1_dieren`.`eigenaar_id`
+                          FROM      meol1_dieren
+                          WHERE    `meol1_dieren`.`id` = ?
+                          ORDER BY `meol1_dieren`.`id` ASC');
 
         $database->bind(1, $x);
         $result = $database->single();
@@ -82,11 +84,12 @@ $app->get(
             return;
         }
 
-        $database->query('SELECT `meol1_eigenaars`.`id`,
-                                 `meol1_eigenaars`.`tussenvoegsel`,
-                                 `meol1_eigenaars`.`voornaam`,
-                                 `meol1_eigenaars`.`achternaam`
-                          FROM   `meol1_eigenaars`');
+        $database->query('SELECT   `meol1_eigenaars`.`id`,
+                                   `meol1_eigenaars`.`tussenvoegsel`,
+                                   `meol1_eigenaars`.`voornaam`,
+                                   `meol1_eigenaars`.`achternaam`
+                          FROM     `meol1_eigenaars`
+                          ORDER BY `meol1_eigenaars`.`id` ASC');
 
         $result = $database->resultset();
 
@@ -169,7 +172,7 @@ $app->post(
             return;
         }
 
-        $database->query('INSERT INTO meol1_dieren
+        $database->query('INSERT INTO meol1_eigenaars
                                       (voornaam, tussenvoegsel, achternaam, plaats)
                           VALUES      (?, ?, ?, ?)');
         $database->bind(1, $app->request()->post('voornaam'));
