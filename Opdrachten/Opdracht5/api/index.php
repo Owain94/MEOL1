@@ -1,4 +1,4 @@
-<?php
+<?
 
 require_once('../../../Slim/Slim.php');
 require_once('../../../Keys.php');
