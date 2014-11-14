@@ -20,7 +20,7 @@ $naam .= $response->{'achternaam'};
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 

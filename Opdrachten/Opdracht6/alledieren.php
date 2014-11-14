@@ -13,7 +13,7 @@ $response = api('dieren');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 

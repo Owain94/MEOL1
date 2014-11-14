@@ -14,7 +14,7 @@ $response2 = api('eigenaars/' . $response->{'eigenaar_id'});
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 

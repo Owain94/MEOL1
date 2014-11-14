@@ -13,7 +13,7 @@ $response = api('eigenaars');
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 
 <head>
 
