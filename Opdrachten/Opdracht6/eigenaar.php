@@ -127,6 +127,8 @@ $naam .= $response->{'achternaam'};
                     </tr>
                 </table>
 
+                <? if(count($response2) != 0) { ?>
+                
                 <h2 style="text-align: center">Alle dieren van <? echo $naam ?></h2>
 
                 <table class="table sortable">
@@ -157,6 +159,7 @@ $naam .= $response->{'achternaam'};
                     ?>
                     </tbody>
                 </table>
+                <? } ?>
             </div>
         </div>
     </div>
